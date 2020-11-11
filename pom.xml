@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<org.swagger.version>2.9.2</org.swagger.version>
 	</properties>
 
 	<dependencies>
@@ -49,6 +50,18 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${org.swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${org.swagger.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
