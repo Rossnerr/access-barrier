@@ -12,7 +12,7 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String number;
+    private String plateNumber;
     private String brand;
     private String owner;
 }

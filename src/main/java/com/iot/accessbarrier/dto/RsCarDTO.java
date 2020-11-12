@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class RsCarDTO {
     private Long id;
-    private String number;
+    private String plateNumber;
     private String brand;
     private String owner;
 }

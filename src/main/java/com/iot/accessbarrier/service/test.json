@@ -1,0 +1,345 @@
+{
+  "uuid": "",
+  "data_type": "alpr_results",
+  "epoch_time": 1605218323497,
+  "processing_time": {
+    "total": 120.75300002470613,
+    "plates": 57.02143859863281,
+    "vehicles": 61.42699997872114
+  },
+  "vehicles": [
+    {
+      "y": 14,
+      "x": 40,
+      "height": 215,
+      "details": {
+        "orientation": [
+          {
+            "confidence": 99.1011962890625,
+            "name": "180"
+          },
+          {
+            "confidence": 0.6290922164916992,
+            "name": "135"
+          },
+          {
+            "confidence": 0.1690017580986023,
+            "name": "0"
+          },
+          {
+            "confidence": 0.07119424641132355,
+            "name": "225"
+          },
+          {
+            "confidence": 0.020620962604880333,
+            "name": "315"
+          }
+        ],
+        "color": [
+          {
+            "confidence": 99.9958267211914,
+            "name": "blue"
+          },
+          {
+            "confidence": 0.0039548370987176895,
+            "name": "purple"
+          },
+          {
+            "confidence": 0.00014813515008427203,
+            "name": "green"
+          },
+          {
+            "confidence": 0.00004348056609160267,
+            "name": "silver-gray"
+          },
+          {
+            "confidence": 0.000017418295101379044,
+            "name": "white"
+          }
+        ],
+        "make": [
+          {
+            "confidence": 99.99996185302734,
+            "name": "ford"
+          },
+          {
+            "confidence": 0.000020383331502671354,
+            "name": "kia"
+          },
+          {
+            "confidence": 0.000008133089977491181,
+            "name": "chery"
+          },
+          {
+            "confidence": 7.62342722282483e-7,
+            "name": "lada"
+          },
+          {
+            "confidence": 5.614904807771381e-7,
+            "name": "peugeot"
+          }
+        ],
+        "body_type": [
+          {
+            "confidence": 99.96881103515625,
+            "name": "sedan-compact"
+          },
+          {
+            "confidence": 0.030844079330563545,
+            "name": "sedan-standard"
+          },
+          {
+            "confidence": 0.00010745142208179459,
+            "name": "sedan-wagon"
+          },
+          {
+            "confidence": 0.00009095329733099788,
+            "name": "tractor-trailer"
+          },
+          {
+            "confidence": 0.00007173812628025189,
+            "name": "suv-standard"
+          }
+        ],
+        "year": [
+          {
+            "confidence": 88.7433090209961,
+            "name": "2010-2014"
+          },
+          {
+            "confidence": 11.062039375305176,
+            "name": "2015-2019"
+          },
+          {
+            "confidence": 0.19441616535186768,
+            "name": "2005-2009"
+          },
+          {
+            "confidence": 0.00019888846145477146,
+            "name": "2000-2004"
+          },
+          {
+            "confidence": 0.00003357196692377329,
+            "name": "1995-1999"
+          }
+        ],
+        "make_model": [
+          {
+            "confidence": 99.89772033691406,
+            "name": "ford_fiesta"
+          },
+          {
+            "confidence": 0.05592598393559456,
+            "name": "ford_figo"
+          },
+          {
+            "confidence": 0.04302379488945007,
+            "name": "ford_ka"
+          },
+          {
+            "confidence": 0.00200940971262753,
+            "name": "ford_ikon"
+          },
+          {
+            "confidence": 0.0002789582940749824,
+            "name": "ford_c-max"
+          }
+        ]
+      },
+      "width": 284
+    }
+  ],
+  "img_height": 280,
+  "img_width": 373,
+  "results": [
+    {
+      "plate": "DPT499",
+      "confidence": 93.59297943115234,
+      "region_confidence": 78,
+      "vehicle_region": {
+        "y": 14,
+        "x": 40,
+        "height": 215,
+        "width": 284
+      },
+      "region": "eu-md",
+      "vehicle": {
+        "orientation": [
+          {
+            "confidence": 99.1011962890625,
+            "name": "180"
+          },
+          {
+            "confidence": 0.6290922164916992,
+            "name": "135"
+          },
+          {
+            "confidence": 0.1690017580986023,
+            "name": "0"
+          },
+          {
+            "confidence": 0.07119424641132355,
+            "name": "225"
+          },
+          {
+            "confidence": 0.020620962604880333,
+            "name": "315"
+          }
+        ],
+        "color": [
+          {
+            "confidence": 99.9958267211914,
+            "name": "blue"
+          },
+          {
+            "confidence": 0.0039548370987176895,
+            "name": "purple"
+          },
+          {
+            "confidence": 0.00014813515008427203,
+            "name": "green"
+          },
+          {
+            "confidence": 0.00004348056609160267,
+            "name": "silver-gray"
+          },
+          {
+            "confidence": 0.000017418295101379044,
+            "name": "white"
+          }
+        ],
+        "make": [
+          {
+            "confidence": 99.99996185302734,
+            "name": "ford"
+          },
+          {
+            "confidence": 0.000020383331502671354,
+            "name": "kia"
+          },
+          {
+            "confidence": 0.000008133089977491181,
+            "name": "chery"
+          },
+          {
+            "confidence": 7.62342722282483e-7,
+            "name": "lada"
+          },
+          {
+            "confidence": 5.614904807771381e-7,
+            "name": "peugeot"
+          }
+        ],
+        "body_type": [
+          {
+            "confidence": 99.96881103515625,
+            "name": "sedan-compact"
+          },
+          {
+            "confidence": 0.030844079330563545,
+            "name": "sedan-standard"
+          },
+          {
+            "confidence": 0.00010745142208179459,
+            "name": "sedan-wagon"
+          },
+          {
+            "confidence": 0.00009095329733099788,
+            "name": "tractor-trailer"
+          },
+          {
+            "confidence": 0.00007173812628025189,
+            "name": "suv-standard"
+          }
+        ],
+        "year": [
+          {
+            "confidence": 88.7433090209961,
+            "name": "2010-2014"
+          },
+          {
+            "confidence": 11.062039375305176,
+            "name": "2015-2019"
+          },
+          {
+            "confidence": 0.19441616535186768,
+            "name": "2005-2009"
+          },
+          {
+            "confidence": 0.00019888846145477146,
+            "name": "2000-2004"
+          },
+          {
+            "confidence": 0.00003357196692377329,
+            "name": "1995-1999"
+          }
+        ],
+        "make_model": [
+          {
+            "confidence": 99.89772033691406,
+            "name": "ford_fiesta"
+          },
+          {
+            "confidence": 0.05592598393559456,
+            "name": "ford_figo"
+          },
+          {
+            "confidence": 0.04302379488945007,
+            "name": "ford_ka"
+          },
+          {
+            "confidence": 0.00200940971262753,
+            "name": "ford_ikon"
+          },
+          {
+            "confidence": 0.0002789582940749824,
+            "name": "ford_c-max"
+          }
+        ]
+      },
+      "plate_index": 0,
+      "processing_time_ms": 8.93072509765625,
+      "candidates": [
+        {
+          "matches_template": 0,
+          "plate": "DPT499",
+          "confidence": 93.59297943115234
+        }
+      ],
+      "coordinates": [
+        {
+          "y": 131,
+          "x": 121
+        },
+        {
+          "y": 134,
+          "x": 241
+        },
+        {
+          "y": 158,
+          "x": 240
+        },
+        {
+          "y": 155,
+          "x": 121
+        }
+      ],
+      "vehicle_detected": true,
+      "matches_template": 0,
+      "requested_topn": 1
+    }
+  ],
+  "credits_monthly_used": 13,
+  "version": 3,
+  "credits_monthly_total": 50,
+  "error": false,
+  "regions_of_interest": [
+    {
+      "y": 0,
+      "x": 0,
+      "height": 280,
+      "width": 373
+    }
+  ],
+  "credit_cost": 1
+}
