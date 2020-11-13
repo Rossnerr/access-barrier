@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+
+  access_barrier_db:
+    image: postgres
+    container_name: access_barrier_db
+    restart: on-failure
+    environment:
+      - POSTGRES_DB=access_barrier
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 5434:5432
+
+  access-barrier-app:
+    image: access-barrier-app
+    build: .
+    container_name: access-barrier-app
+    restart: on-failure
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://access_barrier_db:5432/access_barrier
+    ports:
+      - 8084:8080
+    depends_on:
+      - access_barrier_db
