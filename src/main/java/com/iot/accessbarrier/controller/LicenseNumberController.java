@@ -25,10 +25,10 @@ public class LicenseNumberController {
     private final CarService carService;
     private final LicensePlateRecognition licensePlateRecognition;
 
-    @GetMapping("/index")
-    public String index() {
-        return "hi there!";
-    }
+//    @GetMapping("/index")
+//    public String index() {
+//        return "hi there!";
+//    }
 
     @PostMapping("/car")
     public ResponseEntity<RsCarDTO> save(RqCarDTO rqCarDTO) {
@@ -49,11 +49,11 @@ public class LicenseNumberController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/car/{id}")
-    public ResponseEntity<RsCarDTO> getCarById(@PathVariable Long id) {
-        var rsCarDTO = CarMapper.INSTANCE.carToRsCarDTO(carService.getById(id));
-        return ResponseEntity.ok(rsCarDTO);
-    }
+//    @GetMapping("/car/{id}")
+//    public ResponseEntity<RsCarDTO> getCarById(@PathVariable Long id) {
+//        var rsCarDTO = CarMapper.INSTANCE.carToRsCarDTO(carService.getById(id));
+//        return ResponseEntity.ok(rsCarDTO);
+//    }
 
     @GetMapping("/car")
     public ResponseEntity<List<RsCarDTO>> getAll() {

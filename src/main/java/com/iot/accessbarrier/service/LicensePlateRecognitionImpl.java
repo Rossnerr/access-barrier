@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
@@ -27,10 +26,10 @@ public class LicensePlateRecognitionImpl implements LicensePlateRecognition {
 
     @Override
     public CarInfoDto recognizePlateNumber(MultipartFile image) throws IOException {
-        return convert(mockRequest());
+        return convert(performRequest(image));
     }
 
-    private CarInfoDto convert(RecognizeLicensePlateDTO from){
+    private CarInfoDto convert(RecognizeLicensePlateDTO from) {
         return CarInfoDto.builder()
                 .plateNumber(from.getResults().get(0).getPlate())
                 .brand(from.getResults().get(0).getVehicle().getMake().get(0).getName())
@@ -39,7 +38,7 @@ public class LicensePlateRecognitionImpl implements LicensePlateRecognition {
     }
 
     private RecognizeLicensePlateDTO performRequest(MultipartFile image) throws IOException {
-        var url = "https://api.openalpr.com/v3/recognize?secret_key=sk_6d56c242fb9d39db923c7ed9&recognize_vehicle=0&country=md&return_image=0&topn=10&is_cropped=0";
+        var url = "https://api.openalpr.com/v3/recognize?secret_key=sk_6d56c242fb9d39db923c7ed9&recognize_vehicle=1&country=md&return_image=0&topn=1&is_cropped=0";
         var response = restTemplate
                 .postForEntity(url, getRequest(image), RecognizeLicensePlateDTO.class);
         return response.getBody();
