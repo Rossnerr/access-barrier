@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -35,28 +37,36 @@ public class LicenseNumberController {
         return ResponseEntity.ok(rsCarDTO);
     }
 
+    @PostMapping("/car/image/check")
+    public ResponseEntity<RsCarDTO> getCarByImage(@RequestParam(value = "image") MultipartFile image) throws IOException {
+        var rsCarDTO = CarMapper.INSTANCE.carToRsCarDTO(carService.getCarByImage(image));
+        return ResponseEntity.ok(rsCarDTO);
+    }
+
+    @PostMapping("/car/recognize")
+    public ResponseEntity<CarInfoDto> getCarInfo(@RequestParam(value = "image") MultipartFile image) throws IOException {
+        var response = licensePlateRecognition.recognizePlateNumber(image);
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/car/{id}")
     public ResponseEntity<RsCarDTO> getCarById(@PathVariable Long id) {
         var rsCarDTO = CarMapper.INSTANCE.carToRsCarDTO(carService.getById(id));
         return ResponseEntity.ok(rsCarDTO);
     }
 
+    @GetMapping("/car")
+    public ResponseEntity<List<RsCarDTO>> getAll() {
+        var rsCarDTOs = carService.getAll().stream()
+                .map(CarMapper.INSTANCE::carToRsCarDTO)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(rsCarDTOs);
+    }
+
     @DeleteMapping("/car/{id}")
     public ResponseEntity<Car> deleteCarById(@PathVariable Long id) {
         carService.deleteById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    }
-
-    @PostMapping("/car/info")
-    public ResponseEntity<CarInfoDto> getCarInfo(@RequestParam(value = "image") MultipartFile image) throws IOException {
-        var response = licensePlateRecognition.recognizePlateNumber(image);
-        return ResponseEntity.ok(response);
-    }
-
-    @PostMapping("/car/image/check")
-    public ResponseEntity<RsCarDTO> getCarByImage(@RequestParam(value = "image") MultipartFile image) throws IOException {
-        var rsCarDTO = CarMapper.INSTANCE.carToRsCarDTO(carService.getCarByImage(image));
-        return ResponseEntity.ok(rsCarDTO);
     }
 
 }

@@ -1,13 +1,17 @@
 package com.iot.accessbarrier.service;
 
 import com.iot.accessbarrier.domain.Car;
+import com.iot.accessbarrier.dto.RsCarDTO;
 import com.iot.accessbarrier.exception.EntityNotFoundException;
+import com.iot.accessbarrier.mapper.CarMapper;
 import com.iot.accessbarrier.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -37,5 +41,10 @@ public class CarServiceImpl implements CarService {
         var carInfo = licensePlateRecognition.recognizePlateNumber(image);
         return carRepository.findByPlateNumber(carInfo.getPlateNumber())
                 .orElseThrow(() -> new EntityNotFoundException("Car not found by plateNumber: " + carInfo.getPlateNumber()));
+    }
+
+    @Override
+    public List<Car> getAll() {
+        return carRepository.findAll();
     }
 }
