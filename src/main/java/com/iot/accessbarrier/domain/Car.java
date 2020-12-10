@@ -24,4 +24,9 @@ public class Car {
             orphanRemoval = true
     )
     private List<ParkingHistory> parkingHistories = new ArrayList<>();
+
+    public void addParkingHistory(ParkingHistory parkingHistory) {
+        parkingHistories.add(parkingHistory);
+        parkingHistory.setCar(this);
+    }
 }

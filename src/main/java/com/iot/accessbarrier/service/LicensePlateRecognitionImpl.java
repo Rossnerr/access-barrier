@@ -63,7 +63,7 @@ public class LicensePlateRecognitionImpl implements LicensePlateRecognition {
         return requestEntity;
     }
 
-    // This nested HttpEntiy is important to create the correct
+    // This nested HttpEntity is important to create the correct
     // Content-Disposition entry with metadata "name" and "filename"
     private HttpEntity<byte[]> getFileEntity(MultipartFile file) throws IOException {
         MultiValueMap<String, String> fileMap = new LinkedMultiValueMap<>();
