@@ -1,6 +1,7 @@
 package com.iot.accessbarrier.mapper;
 
 import com.iot.accessbarrier.domain.Car;
+import com.iot.accessbarrier.dto.CarInfoDto;
 import com.iot.accessbarrier.dto.RqCarDTO;
 import com.iot.accessbarrier.dto.RsCarDTO;
 import org.mapstruct.Builder;
@@ -12,5 +13,8 @@ public interface CarMapper {
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
 
     Car rqCarDTOtoCar(RqCarDTO rqCarDTO);
+
+    Car carInfoDTOtoCar(CarInfoDto carInfoDto);
+
     RsCarDTO carToRsCarDTO(Car car);
 }

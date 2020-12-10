@@ -10,6 +10,8 @@ public interface CarService {
 
     Car save(Car car);
 
+    Car saveBasedOnImage(MultipartFile image) throws IOException;
+
     void deleteById(Long id);
 
     List<Car> getAll();

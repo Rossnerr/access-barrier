@@ -3,6 +3,7 @@ package com.iot.accessbarrier.service;
 import com.iot.accessbarrier.domain.Car;
 import com.iot.accessbarrier.exception.EntityNotFoundException;
 import com.iot.accessbarrier.exception.NotUniqueException;
+import com.iot.accessbarrier.mapper.CarMapper;
 import com.iot.accessbarrier.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,13 @@ public class CarServiceImpl implements CarService {
     public Car save(Car car) {
         validatePlateNumber(car.getPlateNumber());
         return carRepository.save(car);
+    }
+
+    @Override
+    public Car saveBasedOnImage(MultipartFile image) throws IOException {
+        var car = CarMapper.INSTANCE
+                .carInfoDTOtoCar(licensePlateRecognition.recognizePlateNumber(image));
+        return save(car);
     }
 
     @Override
