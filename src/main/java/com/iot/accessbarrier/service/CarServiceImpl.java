@@ -2,6 +2,7 @@ package com.iot.accessbarrier.service;
 
 import com.iot.accessbarrier.domain.Car;
 import com.iot.accessbarrier.exception.EntityNotFoundException;
+import com.iot.accessbarrier.exception.NotUniqueException;
 import com.iot.accessbarrier.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car save(Car car) {
+        validatePlateNumber(car.getPlateNumber());
         return carRepository.save(car);
     }
 
@@ -42,6 +44,12 @@ public class CarServiceImpl implements CarService {
     public Car getCarByImage(MultipartFile image) throws IOException {
         var carInfo = licensePlateRecognition.recognizePlateNumber(image);
         return getCarByPlateNumber(carInfo.getPlateNumber());
+    }
+
+    private void validatePlateNumber(String plateNumber) {
+        if (carRepository.findByPlateNumber(plateNumber).isPresent()) {
+            throw new NotUniqueException("There is already a car with this plateNumber: " + plateNumber);
+        }
     }
 
 }
