@@ -26,5 +26,4 @@ public class ParkingHistory {
     )
     @JoinColumn(name = "car_id")
     private Car car;
-
 }
