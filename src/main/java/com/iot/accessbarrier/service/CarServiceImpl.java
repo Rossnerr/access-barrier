@@ -23,25 +23,25 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Car getById(Long id) {
-        return carRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Car not found by id: " + id));
-    }
-
-    @Override
     public void deleteById(Long id) {
         carRepository.deleteById(id);
-    }
-
-    @Override
-    public Car getCarByImage(MultipartFile image) throws IOException {
-        var carInfo = licensePlateRecognition.recognizePlateNumber(image);
-        return carRepository.findByPlateNumber(carInfo.getPlateNumber())
-                .orElseThrow(() -> new EntityNotFoundException("Car not found by plateNumber: " + carInfo.getPlateNumber()));
     }
 
     @Override
     public List<Car> getAll() {
         return carRepository.findAll();
     }
+
+    @Override
+    public Car getCarByPlateNumber(String plateNumber) {
+        return carRepository.findByPlateNumber(plateNumber)
+                .orElseThrow(() -> new EntityNotFoundException("Car not found by plateNumber: " + plateNumber));
+    }
+
+    @Override
+    public Car getCarByImage(MultipartFile image) throws IOException {
+        var carInfo = licensePlateRecognition.recognizePlateNumber(image);
+        return getCarByPlateNumber(carInfo.getPlateNumber());
+    }
+
 }

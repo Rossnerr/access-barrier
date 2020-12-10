@@ -10,11 +10,11 @@ public interface CarService {
 
     Car save(Car car);
 
-    Car getById(Long id);
-
     void deleteById(Long id);
 
-    Car getCarByImage(MultipartFile image) throws IOException;
-
     List<Car> getAll();
+
+    Car getCarByPlateNumber(String plateNumber);
+
+    Car getCarByImage(MultipartFile image) throws IOException;
 }
