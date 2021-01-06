@@ -2,6 +2,7 @@ package com.iot.accessbarrier.controller;
 
 import com.iot.accessbarrier.dto.RsAccessBarrierDto;
 import com.iot.accessbarrier.service.AccessBarrierService;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,9 +20,10 @@ public class AccessBarrierController {
 
     private final AccessBarrierService accessBarrierService;
 
-    @PostMapping("/enter")
-    public ResponseEntity<RsAccessBarrierDto> enter(@RequestParam(value = "image") MultipartFile image) throws IOException {
-        var response = accessBarrierService.enter(image);
+    @ApiOperation(value = "Raises up the barrier if car from the provided image has access to the parking area")
+    @PostMapping
+    public ResponseEntity<RsAccessBarrierDto> raiseBarrier(@RequestParam(value = "image") MultipartFile image) throws IOException {
+        var response = accessBarrierService.raiseBarrier(image);
         return ResponseEntity.ok(response);
     }
 }

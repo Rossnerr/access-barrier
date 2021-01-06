@@ -9,4 +9,6 @@ public interface ParkingHistoryService {
     ParkingHistory save (ParkingHistory parkingHistory);
 
     List<ParkingHistory> getAll();
+
+    ParkingHistory getByCarIdAndDateToIsNull(long carId);
 }

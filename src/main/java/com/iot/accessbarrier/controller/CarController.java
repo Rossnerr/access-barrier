@@ -23,6 +23,7 @@ public class CarController {
 
     private final CarService carService;
 
+    @ApiOperation(value = "Save Car info based on the provided json object")
     @PostMapping
     public ResponseEntity<RsCarDTO> save(@RequestBody RqCarDTO rqCarDTO) {
         var car = CarMapper.INSTANCE.rqCarDTOtoCar(rqCarDTO);
@@ -51,13 +52,6 @@ public class CarController {
         return ResponseEntity.ok(rsCarDTOs);
     }
 
-    @ApiOperation(value = "Get Car info based on the plateNumber from provided image")
-    @PostMapping("/image-get")
-    public ResponseEntity<RsCarDTO> getByImage(@RequestParam(value = "image") MultipartFile image) throws IOException {
-        var rsCarDTO = CarMapper.INSTANCE.carToRsCarDTO(carService.getCarByImage(image));
-        return ResponseEntity.ok(rsCarDTO);
-    }
-
     @ApiOperation(value = "Get Car info based on the plateNumber")
     @GetMapping("{plateNumber}")
     public ResponseEntity<RsCarDTO> getByPlateNumber(@PathVariable String plateNumber) {
@@ -65,5 +59,11 @@ public class CarController {
         return ResponseEntity.ok(rsCarDTO);
     }
 
+    @ApiOperation(value = "Get Car info based on the plateNumber from provided image")
+    @PostMapping("/image-get")
+    public ResponseEntity<RsCarDTO> getByImage(@RequestParam(value = "image") MultipartFile image) throws IOException {
+        var rsCarDTO = CarMapper.INSTANCE.carToRsCarDTO(carService.getCarByImage(image));
+        return ResponseEntity.ok(rsCarDTO);
+    }
 
 }

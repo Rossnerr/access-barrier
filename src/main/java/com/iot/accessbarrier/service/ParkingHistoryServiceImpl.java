@@ -22,4 +22,9 @@ public class ParkingHistoryServiceImpl implements ParkingHistoryService {
     public List<ParkingHistory> getAll() {
         return parkingHistoryRepository.findAll();
     }
+
+    @Override
+    public ParkingHistory getByCarIdAndDateToIsNull(long carId) {
+        return parkingHistoryRepository.getByCarIdAndDateToIsNull(carId);
+    }
 }

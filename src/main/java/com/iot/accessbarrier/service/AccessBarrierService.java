@@ -7,5 +7,5 @@ import java.io.IOException;
 
 public interface AccessBarrierService {
 
-    RsAccessBarrierDto enter(MultipartFile image) throws IOException;
+    RsAccessBarrierDto raiseBarrier(MultipartFile image) throws IOException;
 }

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ParkingHistoryRepository extends JpaRepository<ParkingHistory, Long> {
+    ParkingHistory getByCarIdAndDateToIsNull(long carId);
 }
