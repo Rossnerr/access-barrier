@@ -19,4 +19,6 @@ public interface CarService {
     Car getCarByPlateNumber(String plateNumber);
 
     Car getCarByImage(MultipartFile image) throws IOException;
+
+    List<Car> getAllCarsInParkingArea();
 }

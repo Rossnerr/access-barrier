@@ -54,6 +54,11 @@ public class CarServiceImpl implements CarService {
         return getCarByPlateNumber(carInfo.getPlateNumber());
     }
 
+    @Override
+    public List<Car> getAllCarsInParkingArea() {
+        return carRepository.getAllCarsInParkingArea();
+    }
+
     private void validatePlateNumber(String plateNumber) {
         if (carRepository.findByPlateNumber(plateNumber).isPresent()) {
             throw new NotUniqueException("There is already a car with this plateNumber: " + plateNumber);
