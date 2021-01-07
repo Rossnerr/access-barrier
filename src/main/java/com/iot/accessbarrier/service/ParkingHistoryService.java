@@ -11,4 +11,6 @@ public interface ParkingHistoryService {
     List<ParkingHistory> getAll();
 
     ParkingHistory getByCarIdAndDateToIsNull(long carId);
+
+    List<ParkingHistory> getAllByCarPlateNumber(String plateNumber);
 }

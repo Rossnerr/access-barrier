@@ -27,4 +27,9 @@ public class ParkingHistoryServiceImpl implements ParkingHistoryService {
     public ParkingHistory getByCarIdAndDateToIsNull(long carId) {
         return parkingHistoryRepository.getByCarIdAndDateToIsNull(carId);
     }
+
+    @Override
+    public List<ParkingHistory> getAllByCarPlateNumber(String plateNumber) {
+        return parkingHistoryRepository.getAllByCarPlateNumber(plateNumber);
+    }
 }
