@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iot.accessbarrier.dto.CarInfoDto;
 import com.iot.accessbarrier.dto.alpr.RecognizeLicensePlateDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +21,12 @@ import java.io.IOException;
 @Service
 @RequiredArgsConstructor
 public class LicensePlateRecognitionImpl implements LicensePlateRecognition {
+
+    @Value("${alpr.url}")
+    private String alprUrl;
+
+    @Value("${alpr.secret-key}")
+    private String alrpSecretKey;
 
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
@@ -38,7 +45,7 @@ public class LicensePlateRecognitionImpl implements LicensePlateRecognition {
     }
 
     private RecognizeLicensePlateDTO performRequest(MultipartFile image) throws IOException {
-        var url = "https://api.openalpr.com/v3/recognize?secret_key=sk_6d56c242fb9d39db923c7ed9&recognize_vehicle=1&country=md&return_image=0&topn=1&is_cropped=0";
+        var url = String.format(alprUrl,alrpSecretKey);
         var response = restTemplate
                 .postForEntity(url, getRequest(image), RecognizeLicensePlateDTO.class);
         return response.getBody();
