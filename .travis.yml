@@ -4,11 +4,12 @@ services:
   - docker
 
 before_install:
-  - docker build -t rossnerr/access-barrier .
+  - docker-compose up
 
 script:
 #   - docker run rossnerr/access-barrier
 
 # after_success:
   - echo $"DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push rossnerr/access-barrier
+  - docker push access-barrier_access-barrier-app
+  - docker push postgres

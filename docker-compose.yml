@@ -3,6 +3,7 @@ version: '3'
 services:
   access_barrier_db:
     image: postgres
+    container_name: access_barrier_db
     environment:
       - POSTGRES_DB=access_barrier
       - POSTGRES_USER=postgres
@@ -14,6 +15,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./
+    container_name: access-barrier-app
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_DATASOURCE_USERNAME=postgres
