@@ -1,11 +1,8 @@
 version: '3.1'
 
 services:
-
   access_barrier_db:
     image: postgres
-    container_name: access_barrier_db
-    restart: on-failure
     environment:
       - POSTGRES_DB=access_barrier
       - POSTGRES_USER=postgres
@@ -14,10 +11,9 @@ services:
       - 5434:5432
 
   access-barrier-app:
-    image: access-barrier-app
-    build: .
-    container_name: access-barrier-app
-    restart: on-failure
+    build:
+      dockerfile: Dockerfile
+      context: ./
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_DATASOURCE_USERNAME=postgres
