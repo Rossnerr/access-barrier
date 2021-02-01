@@ -6,8 +6,8 @@ services:
 before_install:
   - docker build -t rossnerr/access-barrier .
 
-script:
-  - docker run rossnerr/access-barrier
+# script:
+#   - docker run rossnerr/access-barrier
 
 after_success:
   - echo $"DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
