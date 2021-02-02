@@ -16,11 +16,12 @@ services:
       dockerfile: Dockerfile
       context: ./
     container_name: access-barrier-app
+    image: access-barrier-app
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://access_barrier_db:5432/access_barrier
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://access-barrier-db:5432/access_barrier
     ports:
       - 8084:8080
     depends_on:

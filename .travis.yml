@@ -4,22 +4,26 @@ services:
   - docker
 
 before_install:
-  - docker build -t rossnerr/access-barrier .
+  - docker-compose build
 
 script:
 #   - docker run rossnerr/access-barrier
 
 # after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push rossnerr/access-barrier
+  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker tag access-barrier-app $DOCKER_USERNAME/access-barrier-app
+  - docker tag postgres $DOCKER_USERNAME/postgres
+  - docker push $DOCKER_USERNAME/access-barrier-app
+  - docker push $DOCKER_USERNAME/postres
 
 deploy:
   provider: elasticbeanstalk
   region: us-west-2
-  app: access-barrier
-  env: Accessbarrier-env
+  app: DemoApp
+  env: Demoapp-env
   bucket_name: elasticbeanstalk-us-west-2-895923276358
-  bucket_path: access-barrier
+  bucket_path: DemoApp
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
