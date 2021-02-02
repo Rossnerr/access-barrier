@@ -1,0 +1,58 @@
+{
+    "AWSEBDockerrunVersion" : 2,
+    "containerDefintions" : [
+        {
+            "name" : "access-barrier-app",
+            "links" : [
+                "access_barrier_db"
+            ],
+            "image" : "rossnerr/access-barrier",
+            "essential" : false,
+            "portMappings" : [
+                {
+                    "containerPort" : 8888,
+                    "hostPort" : 80
+                }
+            ],
+            "environment" : [
+                {
+                    "name" : "_JAVA_OPTIONS",
+                    "value" : "-Xmx512m -Xms256m"
+                },
+                {
+                    "name" : "SPRING_DATASOURCE_USERNAME",
+                    "value" : "postgres"
+                },
+                {
+                    "name" : "SPRING_DATASOURCE_PASSWORD",
+                    "value" : "password"
+                },
+                {
+                    "name" : "SPRING_DATASOURCE_URL",
+                    "value" : "jdbc:postgresql://access_barrier_db:5432/access_barrier"
+                }
+            ],
+            "memory" : 500
+        },
+        {
+            "name" : "access-barrier-db",
+            "image" : "postgres",
+            "essential" : true, 
+            "environment" : [
+                {
+                    "name" : "POSTGRES_DB",
+                    "value" : "access_barrier"
+                },
+                {
+                    "name" : "POSTGRES_USER",
+                    "value" : "postgres"
+                },
+                {
+                    "name" : "POSTGRES_PASSWORD",
+                    "value" : "password"
+                }
+            ],
+            "memory" : 500
+        }
+    ]
+}
