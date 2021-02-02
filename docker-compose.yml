@@ -2,7 +2,10 @@ version: '3'
 
 services:
   access-barrier-db:
-    image: postgres
+    build:
+      dockerfile: Dockerfile
+      context: ./postgres
+    image: access-barrier-db
     container_name: access-barrier-db
     environment:
       - POSTGRES_DB=access_barrier

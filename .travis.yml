@@ -13,10 +13,10 @@ script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker tag access-barrier-app $DOCKER_ID/access-barrier-app
-  - docker tag postgres $DOCKER_ID/postgres
+  - docker tag access-barrier-db $DOCKER_ID/access-barrier-db
 
   - docker push $DOCKER_ID/access-barrier-app
-  - docker push $DOCKER_ID/postres
+  - docker push $DOCKER_ID/access-barrier-db
 
 deploy:
   provider: elasticbeanstalk
