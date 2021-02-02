@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  access_barrier_db:
+  access-barrier-db:
     image: postgres
-    container_name: access_barrier_db
+    container_name: access-barrier-db
     environment:
       - POSTGRES_DB=access_barrier
       - POSTGRES_USER=postgres
@@ -24,4 +24,4 @@ services:
     ports:
       - 8084:8080
     depends_on:
-      - access_barrier_db
+      - access-barrier-db

@@ -24,16 +24,10 @@
         {
             "name" : "access-barrier-app",
             "links" : [
-                "access_barrier_db"
+                "access-barrier-db"
             ],
             "image" : "rossnerr/access-barrier",
             "essential" : false,
-            "portMappings" : [
-                {
-                    "containerPort" : 8888,
-                    "hostPort" : 80
-                }
-            ],
             "environment" : [
                 {
                     "name" : "_JAVA_OPTIONS",
