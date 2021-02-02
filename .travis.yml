@@ -10,8 +10,8 @@ script:
 #   - docker run rossnerr/access-barrier
 
 # after_success:
-  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker tag access-barrier-app $DOCKER_USERNAME/access-barrier-app
   - docker tag postgres $DOCKER_USERNAME/postgres
   - docker push $DOCKER_USERNAME/access-barrier-app
