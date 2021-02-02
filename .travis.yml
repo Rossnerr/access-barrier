@@ -10,5 +10,5 @@ script:
 #   - docker run rossnerr/access-barrier
 
 # after_success:
-  - echo $"DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push rossnerr/access-barrier
