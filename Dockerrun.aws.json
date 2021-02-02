@@ -3,7 +3,7 @@
     "containerDefintions" : [
         {
             "name" : "access-barrier-db",
-            "image" : "postgres",
+            "image" : "rossnerr/access-barrier-db",
             "essential" : true, 
             "environment" : [
                 {
@@ -21,13 +21,14 @@
             ],
             "memory" : 500
         },
+
         {
             "name" : "access-barrier-app",
+            "image" : "rossnerr/access-barrier-app",
+            "essential" : false,
             "links" : [
                 "access-barrier-db"
             ],
-            "image" : "rossnerr/access-barrier",
-            "essential" : false,
             "environment" : [
                 {
                     "name" : "_JAVA_OPTIONS",
