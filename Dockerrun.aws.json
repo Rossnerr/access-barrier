@@ -48,7 +48,7 @@
                     "value" : "jdbc:postgresql://access_barrier_db:5432/access_barrier"
                 }
             ],
-            "memory" : 200,
+            "memory" : 500,
             "cpu" : 1
         }
     ]
