@@ -45,7 +45,7 @@
                 },
                 {
                     "name" : "SPRING_DATASOURCE_URL",
-                    "value" : "jdbc:postgresql://access_barrier_db:5432/access_barrier"
+                    "value" : "jdbc:postgresql://access-barrier-db:5432/access_barrier"
                 }
             ],
             "memory" : 500,
