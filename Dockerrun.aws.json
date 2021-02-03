@@ -19,7 +19,8 @@
                     "value" : "password"
                 }
             ],
-            "memory" : 500
+            "memory" : 200,
+            "cpu" : 1
         },
 
         {
@@ -47,7 +48,8 @@
                     "value" : "jdbc:postgresql://access_barrier_db:5432/access_barrier"
                 }
             ],
-            "memory" : 500
+            "memory" : 200,
+            "cpu" : 1
         }
     ]
 }
