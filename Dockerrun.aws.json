@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion" : 2,
-    "containerDefintions" : [
+    "containerDefinitions" : [
         {
             "name" : "access-barrier-db",
             "image" : "rossnerr/access-barrier-db",
