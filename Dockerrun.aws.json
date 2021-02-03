@@ -49,6 +49,12 @@
                 }
             ],
             "memory" : 500,
+            "portMappings": [
+                {
+                  "hostPort": 80,
+                  "containerPort": 8080
+                }
+              ],
             "cpu" : 1
         }
     ]

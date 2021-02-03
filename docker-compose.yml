@@ -26,6 +26,6 @@ services:
       - SPRING_DATASOURCE_PASSWORD=password
       - SPRING_DATASOURCE_URL=jdbc:postgresql://access-barrier-db:5432/access_barrier
     ports:
-      - 8084:8080
+      - 8080:8080
     depends_on:
       - access-barrier-db
