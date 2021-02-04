@@ -12,6 +12,7 @@ script:
 # after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  # Tag images
   - docker tag access-barrier-app $DOCKER_ID/access-barrier-app
   - docker tag access-barrier-db $DOCKER_ID/access-barrier-db
 
